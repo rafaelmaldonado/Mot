@@ -11,8 +11,8 @@ mongoose.connect('mongodb://localhost/images', function(err, res){
 		console.log('Conexión exitosa!');
 })
 
-app.use(bodyParser.urlencoded({ extended: false }));  
-app.use(bodyParser.json());  
+app.use(bodyParser.urlencoded({limit: '2mb', extended: true}));  
+app.use(bodyParser.json({limit: '2mb'}));  
 app.use(methodOverride());
 
 app.get('/', function(req, res){
