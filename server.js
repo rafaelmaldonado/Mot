@@ -14,9 +14,10 @@ mongoose.connect('mongodb://localhost/images', function(err, res){
 app.use(bodyParser.urlencoded({limit: '2mb', extended: true}));  
 app.use(bodyParser.json({limit: '2mb'}));  
 app.use(methodOverride());
+app.use(express.static('images', { maxAge: 86400000 }));
 
 app.get('/', function(req, res){
-	res.send('Hola Rafa');
+	res.send('API REST Motive');
 });
 
 require('./routes')(app);
